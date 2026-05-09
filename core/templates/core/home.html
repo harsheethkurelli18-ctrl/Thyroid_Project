@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="card">
+    <h1>Thyroid Disease Prediction</h1>
+    <p>This prototype implements user registration, dataset upload, model classification and prediction based on the documentation you provided.</p>
+    {% if request.user.is_authenticated %}
+        <p>Welcome back, <strong>{{ request.user.username }}</strong>.</p>
+        <p><a href="{% url 'dashboard' %}">Go to your dashboard</a>.</p>
+    {% else %}
+        <p><a href="{% url 'register' %}">Register</a> or <a href="{% url 'login' %}">Login</a> to begin.</p>
+    {% endif %}
+</div>
+{% endblock %}

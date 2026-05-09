@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Dashboard</h2>
+    <p>Welcome, <strong>{{ request.user.username }}</strong>.</p>
+    <p>Your latest dataset: {{ uploaded.name if uploaded else 'None uploaded yet' }}</p>
+    {% if uploaded %}
+        <p>Uploaded at: {{ uploaded.uploaded_at }}</p>
+        <p><a href="{% url 'classification' %}">Run classification</a> or <a href="{% url 'prediction' %}">Make a prediction</a>.</p>
+    {% else %}
+        <p>You can upload a dataset to begin classification and prediction.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Upload Dataset</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload CSV</button>
+    </form>
+    <p>Please upload a CSV file with six numeric feature columns and a binary <code>label</code> column.</p>
+</div>
+{% endblock %}
